@@ -2,7 +2,7 @@
 
 I'm passionate about **Web Development** and always eager to learn new things.  
 
-### [🎨 Project Name](https://github.com/benyrwnn2nd/sekaikomik-downloader)  
+### 🎨 SekaiKomik Downloader(https://github.com/benyrwnn2nd/sekaikomik-downloader)  
 Short description of the project.  
 🔹 **Features:** Downloader, Search, Latest 
 
