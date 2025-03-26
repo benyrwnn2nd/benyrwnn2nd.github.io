@@ -1,0 +1,670 @@
+/* Pastikan html dan body memiliki tinggi penuh */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f5e6f0;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Container untuk membatasi lebar konten */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar */
+nav {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ff6f91;
+    text-decoration: none;
+    text-shadow: 0 0 5px rgba(255, 111, 145, 0.5);
+}
+
+nav .nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav .nav-links a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav .nav-links a:hover {
+    color: #ff6f91;
+    text-shadow: 0 0 5px rgba(255, 111, 145, 0.5);
+}
+
+/* Hamburger menu untuk mobile */
+nav .hamburger {
+    display: none;
+    font-size: 1.5rem;
+    color: #ff6f91;
+    cursor: pointer;
+}
+
+/* Tombol kontrol musik di navbar */
+.music-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.music-control button {
+    background: none;
+    border: none;
+    color: #ff6f91;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.music-control button:hover {
+    color: #ffccde;
+}
+
+/* Tombol tema di navbar */
+.theme-toggle {
+    background: none;
+    border: none;
+    color: #ff6f91;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    color: #ffccde;
+}
+
+/* Hero Section (index.html) */
+.hero {
+    background: #ffccde; /* Warna solid pink lembut */
+    background-attachment: fixed; /* Efek parallax tidak diperlukan lagi, tapi tetap biarkan untuk konsistensi */
+    color: #fff;
+    padding: 6rem 0 4rem;
+    text-align: center;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Overlay lebih ringan karena background sudah solid */
+    z-index: 0;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #ff6f91;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 15px rgba(255, 111, 145, 0.5);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    color: #f5e6f0;
+}
+
+.hero .cta-button {
+    display: inline-block;
+    background: linear-gradient(90deg, #ff6f91, #ffccde);
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 111, 145, 0.5);
+}
+
+.hero .cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 111, 145, 0.7);
+}
+
+/* Efek bunga sakura yang berjatuhan */
+.sakura {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    background: transparent;
+}
+
+.sakura div {
+    position: absolute;
+    background: url('../assets/blossom.png') no-repeat center center;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    opacity: 0.8;
+    animation: fall 8s linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh) translateX(0) rotate(0deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(110vh) translateX(20vw) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* About Section (about.html) */
+.about-section {
+    padding: 5rem 0;
+    background-color: #fff;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: #ff6f91;
+    text-shadow: 0 0 5px rgba(255, 111, 145, 0.5);
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 1rem;
+    color: #555;
+}
+
+/* Projects Section (projects.html) */
+.projects-section {
+    padding: 5rem 0;
+    background-color: #f5e6f0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.projects-section h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #ff6f91;
+    text-shadow: 0 0 5px rgba(255, 111, 145, 0.5);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: #fff;
+    border: 1px solid #ffccde;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(255, 111, 145, 0.5);
+}
+
+.project-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border: 2px solid #ffccde;
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #ff6f91;
+}
+
+.project-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.project-card a {
+    color: #ff6f91;
+    text-decoration: none;
+    font-weight: 500;
+    transition: text-shadow 0.3s ease;
+}
+
+.project-card a:hover {
+    text-shadow: 0 0 5px rgba(255, 111, 145, 0.5);
+}
+
+/* Efek sparkle pada project card */
+.sparkle-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(255, 111, 145, 0.3) 10%, transparent 10%) no-repeat center center;
+    background-size: 0;
+    transition: opacity 0.3s ease, background-size 0.3s ease;
+}
+
+.project-card:hover .sparkle-effect {
+    opacity: 1;
+    background-size: 200%;
+    animation: sparkle 1s ease infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        background: radial-gradient(circle, rgba(255, 111, 145, 0.3) 10%, transparent 10%) no-repeat center center;
+    }
+    50% {
+        background: radial-gradient(circle, rgba(255, 204, 222, 0.5) 20%, transparent 20%) no-repeat center center;
+    }
+}
+
+/* Tambahkan bunga sakura kecil saat hover */
+.project-card:hover::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background: url('../assets/blossom.png') no-repeat center center;
+    background-size: contain;
+    animation: sakuraPop 0.5s ease forwards;
+}
+
+@keyframes sakuraPop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Contact Section (contact.html) */
+.contact-section {
+    padding: 5rem 0;
+    background-color: #fff;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: #ff6f91;
+    text-shadow: 0 0 5px rgba(255, 111, 145, 0.5);
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-form label {
+    display: block;
+    text-align: left;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ffccde;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #ff6f91;
+    box-shadow: 0 0 5px rgba(255, 111, 145, 0.5);
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    background: linear-gradient(90deg, #ff6f91, #ffccde);
+    color: #fff;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 111, 145, 0.5);
+}
+
+.contact-form button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 111, 145, 0.7);
+}
+
+/* Footer */
+footer {
+    background-color: #ff6f91;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+.social-links {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 1.2rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #ffccde;
+    transform: scale(1.2);
+}
+
+/* Animasi fade-in untuk section */
+section {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mode gelap */
+body.dark-mode {
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+}
+
+body.dark-mode nav {
+    background: rgba(30, 30, 50, 0.9);
+}
+
+body.dark-mode nav .nav-links a {
+    color: #fff;
+}
+
+body.dark-mode nav .nav-links a:hover {
+    color: #ff6f91;
+}
+
+body.dark-mode .music-control button {
+    color: #ff6f91;
+}
+
+body.dark-mode .music-control button:hover {
+    color: #ffccde;
+}
+
+body.dark-mode .hero {
+    background: #2a2a4e; /* Warna solid ungu tua untuk mode gelap */
+}
+
+body.dark-mode .hero::before {
+    background: rgba(0, 0, 0, 0.5); /* Overlay lebih gelap di mode gelap */
+}
+
+body.dark-mode .hero p {
+    color: #e0e0e0;
+}
+
+body.dark-mode .about-section {
+    background-color: #2a2a4e;
+}
+
+/* Perbaikan kontras untuk teks di about section di mode gelap */
+body.dark-mode .about-section p {
+    color: #e0e0e0;
+}
+
+body.dark-mode .projects-section {
+    background-color: #1a1a2e;
+}
+
+body.dark-mode .project-card {
+    background-color: #2a2a4e;
+    border: 1px solid #ff6f91;
+}
+
+/* Perbaikan kontras untuk teks di project card di mode gelap */
+body.dark-mode .project-card p {
+    color: #e0e0e0;
+}
+
+body.dark-mode .contact-section {
+    background-color: #2a2a4e;
+}
+
+/* Perbaikan kontras untuk form di mode gelap */
+body.dark-mode .contact-form label {
+    color: #fff;
+}
+
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+    background-color: #3a3a5e;
+    color: #e0e0e0;
+    border: 1px solid #ff6f91;
+}
+
+body.dark-mode .contact-form input:focus,
+body.dark-mode .contact-form textarea:focus {
+    border-color: #ffccde;
+    box-shadow: 0 0 5px rgba(255, 204, 222, 0.5);
+}
+
+body.dark-mode footer {
+    background-color: #ff6f91;
+}
+
+/* Responsivitas */
+@media (max-width: 768px) {
+    nav .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        padding: 1rem 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    body.dark-mode nav .nav-links {
+        background: rgba(30, 30, 50, 0.9);
+    }
+
+    nav .nav-links.active {
+        display: flex;
+    }
+
+    nav .hamburger {
+        display: block;
+    }
+
+    .hero {
+        padding: 5rem 0 3rem;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        padding: 0 15px;
+    }
+
+    .hero img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .hero .cta-button {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .about-section h2,
+    .projects-section h2,
+    .contact-section h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    nav .logo {
+        font-size: 1.2rem;
+    }
+
+    .hero {
+        padding: 4rem 0 2rem;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .project-card {
+        padding: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.5rem;
+    }
+
+    .contact-form button {
+        padding: 0.5rem 1.5rem;
+    }
+      }
