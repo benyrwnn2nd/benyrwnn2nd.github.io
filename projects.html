@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyek Saya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="assets/profile.jpg"
+</head>
+<body>
+    <div class="sakura" id="sakura"></div>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">Portofolio Saya</a>
+            <div class="music-control">
+                <button id="play-pause"><i class="fas fa-play"></i></button>
+            </div>
+            <button class="theme-toggle" id="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">Tentang Saya</a>
+                <a href="projects.html">Proyek</a>
+                <a href="contact.html">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="projects-section">
+        <div class="container">
+            <h2>Proyek Saya</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                   <div class="sparkle-effect"></div>
+                    <img src="assets/project-preview.jpg" alt="Sekaikomik Preview">
+                    <h3>Sekaikomik Downloader</h3>
+                    <p>Aplikasi web untuk mengunduh komik dari web sekaikomik dalam format PDF, mencari komik, dan menampilkan komik terbaru.</p>
+                    <a href="https://github.com/benyrwnn2nd/sekaikomik-downloader" target="_blank">Lihat di GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Benny Irawan. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/benyrwnn2nd" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://discord.com/users/800929401289441310" target="_blank"><i class="fab fa-discord"></i></a>
+            <a href="https://instagram.com/benyrwnn" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@benyrwnn" target="_blank"><i class="fab fa-tiktok"></i></a>
+        </div>
+    </footer>
+
+    <audio id="background-music" loop>
+        <source src="assets/blue-ost.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
